@@ -1,26 +1,27 @@
 package com.belajar.databinding.models;
 
-public class Siswa {
-    private String nama,nim;
 
-    public Siswa(String nama, String nim) {
-        this.nama = nama;
-        this.nim = nim;
-    }
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
+public class Siswa extends BaseObservable {
+ private String nama;
 
-    public void setNim(String nim) {
-        this.nim = nim;
-    }
+ public Siswa(){
 
+ }
+
+ public Siswa(String inputNama){
+     this.nama = inputNama;
+ }
+    @Bindable
     public String getNama() {
         return nama;
     }
 
-    public String getNim() {
-        return nim;
+    public void setNama(String nama) {
+        this.nama = nama;
+        notifyPropertyChanged(BR.nama);
     }
 }
